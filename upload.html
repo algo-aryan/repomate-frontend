@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Upload</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .file-input {
+      margin: 20px 0;
+      padding: 14px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #internshipResults {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: left;
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .custom-file-label {
+  display: block;
+  padding: 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.custom-file-label:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+    .card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+  line-height: 1.5;
+}
+
+.card h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #00c6ff;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #eee;
+  font-size: 15px;
+}
+
+.card a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+.spinner {
+  margin-top: 30px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid #00c6ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #00c6ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+    <h2>Upload Resume</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="resumeFile" class="custom-file-label" id="customFileLabel">
+          📄 Choose PDF Resume
+        </label>
+        <input type="file" id="resumeFile" name="resume" accept=".pdf" required hidden />
+        <button type="submit">Upload</button>
+      </form>
+      <div id="loadingSpinner" class="spinner" style="display: none;"></div>
+    <div id="internshipResults"></div>
+  </div>
+
+  <script src="script.js"></script>
+      
+</body>
+</html>
